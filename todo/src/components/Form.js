@@ -1,23 +1,16 @@
 import React from "react";
 
-const Form = ({ error, value, submit, onChange }) => {
+const Form = () => {
   return (
-    <form onSubmit={submit}>
-      <div className="form-group row align-items-center">
-        <div className="col-9 pr-0">
-          <input
-            type="text"
-            className="form-control-plaintext"
-            placeholder="What to do?"
-            required
-            value={value}
-            onChange={onChange}
-          />
-          {error && <small className="form-text text-danger">{error}</small>}
+    <form>
+      <div className="form-group row">
+        <div className="col-9">
+          <input type="text" className="form-control-plaintext" />
         </div>
-        <div className="col-3 text-right">
+
+        <div className="col-3">
           <button type="submit" className="btn btn-primary">
-            Add Todo
+            App ToDo
           </button>
         </div>
       </div>

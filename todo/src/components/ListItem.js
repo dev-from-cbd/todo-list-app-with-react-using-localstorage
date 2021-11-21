@@ -8,7 +8,7 @@ const ListItem = ({ title, delHandler }) => {
         <button className="btn btn-sm btn-danger mr-2" onClick={delHandler}>
           <i className="far fa-trash-alt"></i>
         </button>
-        <button className="btn btn-sm btn-success" onClick={doneHandler}>
+        <button className="btn btn-sm btn-success" onClick={delHandler}>
           <i className="fas fa-check"></i>
         </button>
       </div>
