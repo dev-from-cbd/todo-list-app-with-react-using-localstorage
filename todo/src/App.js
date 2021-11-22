@@ -19,7 +19,7 @@ const App = () => {
     <Layout>
       <Header />
       <Form todo={todo} />
-      <Lists done={doneHandler} del={delHandler} />
+      <Lists done={doneHandler} del={delHandler} change={(e) => setTodo(e.target)} />
     </Layout>
   );
 };
