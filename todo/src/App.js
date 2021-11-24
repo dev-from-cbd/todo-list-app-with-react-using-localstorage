@@ -6,9 +6,14 @@ import Lists from "./components/Lists";
 
 const App = () => {
   const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  const submitHandler = () => {
-    console.log("submit");
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    setTodos([{ title: todo }, ...todos]);
+
+    console.log(todos);
   };
 
   const delHandler = () => {
@@ -27,7 +32,7 @@ const App = () => {
         change={(e) => setTodo(e.target.value)}
         submit={submitHandler}
       />
-      <Lists done={doneHandler} del={delHandler} />
+      <Lists done={doneHandler} del={delHandler} todos={todos} />
     </Layout>
   );
 };

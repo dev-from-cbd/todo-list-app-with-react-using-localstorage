@@ -1,8 +1,8 @@
 import React from "react";
 
-const Form = ({ todo, change }) => {
+const Form = ({ todo, change, submit }) => {
   return (
-    <form>
+    <form onSubmit={submit}>
       <div className="form-group row">
         <div className="col-9">
           <input
