@@ -6,7 +6,13 @@ const Lists = ({ done, del, todos }) => {
     <div className="listWrap">
       <ul className="list-group">
         {todos.map((todo) => (
-          <ListItem title={todo.title} delHandler={del} doneHandler={done} />
+          <ListItem
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            delHandler={del}
+            doneHandler={done}
+          />
         ))}
       </ul>
     </div>

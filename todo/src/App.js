@@ -11,17 +11,24 @@ const App = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setTodos([{ title: todo }, ...todos]);
-
-    console.log(todos);
+    setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
   };
 
-  const delHandler = () => {
-    console.log("done");
+  const delHandler = (todoId) => {
+    if (window.confirm("Are you sure?")) {
+      const updatedTodos = todos.filter((item) => item.id !== todoId);
+
+      setTodos(updatedTodos);
+    }
   };
 
-  const doneHandler = () => {
-    console.log("delete");
+  const doneHandler = (todoId) => {
+    const index = todos.findIndex((item) => item.id === todoId);
+    const duplicateTodos = [...todos];
+
+    duplicateTodos[index] = {
+      id: 
+    };
   };
 
   return (
