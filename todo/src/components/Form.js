@@ -11,6 +11,7 @@ const Form = ({ todo, change, submit }) => {
             value={todo}
             onChange={change}
           />
+          {error && <small></small>}
         </div>
 
         <div className="col-3">

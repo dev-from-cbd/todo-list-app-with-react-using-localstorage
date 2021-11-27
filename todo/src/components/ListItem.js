@@ -1,9 +1,13 @@
 import React from "react";
 
-const ListItem = ({ id, title, delHandler, doneHandler }) => {
+const ListItem = ({ id, title, delHandler, doneHandler, done }) => {
   return (
-    <li className="list-group-item d-flex justify-content-between">
-      {title}
+    <li
+      className={`list-group-item d-flex justify-content-between align-items-center ${
+        done ? "bg-success" : ""
+      }`}
+    >
+      {done ? <del>{title}</del> : title}
       <div>
         <button
           className="btn btn-sm btn-danger mr-2"
@@ -15,7 +19,11 @@ const ListItem = ({ id, title, delHandler, doneHandler }) => {
           className="btn btn-sm btn-success"
           onClick={() => doneHandler(id)}
         >
-          <i className="fas fa-check"></i>
+          {done ? (
+            <i className="fas fa-undo-alt"></i>
+          ) : (
+            <i className="fas fa-check"></i>
+          )}
         </button>
       </div>
     </li>
