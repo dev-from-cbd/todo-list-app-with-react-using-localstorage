@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import Layout from "./components/Layout";
@@ -9,6 +9,20 @@ const App = () => {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
+  // Get todos from localStorage //
+  useEffect(() => {
+    const getTodos = JSON.parse(localStorage.getItem("todos"));
+
+    if (getTodos) {
+      setTodos(getTodos);
+    }
+  }, []);
+
+  // Saving the todos //
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -18,6 +32,9 @@ const App = () => {
     }
 
     setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
+
+    setError(null);
+    setTodo("");
   };
 
   const delHandler = (todoId) => {

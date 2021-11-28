@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ todo, change, submit }) => {
+const Form = ({ todo, change, submit, error }) => {
   return (
     <form onSubmit={submit}>
       <div className="form-group row">
@@ -11,7 +11,7 @@ const Form = ({ todo, change, submit }) => {
             value={todo}
             onChange={change}
           />
-          {error && <small></small>}
+          {error && <small className="form-text text-danger">{error}</small>}
         </div>
 
         <div className="col-3">
